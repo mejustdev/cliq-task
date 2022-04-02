@@ -1,7 +1,17 @@
+import App from "next/app";
 import '../styles/globals.css'
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+import { Provider } from "../context";
+
+class MyApp extends App {
+  render() {
+    const { Component, pageProps } = this.props;
+    return (
+      <Provider>
+        <Component {...pageProps} />
+      </Provider>
+    );
+  }
 }
 
-export default MyApp
+export default MyApp;
